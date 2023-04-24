@@ -55,7 +55,7 @@ module QueueingRabbit
     end
 
     def pidfile_exists?
-      @pidfile && File.exists?(@pidfile)
+      @pidfile && File.exist?(@pidfile)
     end
 
     def pid
