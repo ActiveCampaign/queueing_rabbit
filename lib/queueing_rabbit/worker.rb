@@ -10,6 +10,8 @@ module QueueingRabbit
     attr_reader :jobs, :concurrency, :mutex_pool
 
     def initialize(jobs, concurrency = nil)
+      raise "We only care about using this in the context of Rails" unless defined?(Rails)
+
       @jobs = jobs.map { |job| job.to_s.strip }.reject { |job| job.empty? }
       @concurrency = concurrency || @jobs.count
       @mutex_pool = ::MutexPool.new(@concurrency)
@@ -101,7 +103,7 @@ module QueueingRabbit
       end
     rescue => e
       QueueingRabbit.trigger_event(:consumer_error, e)
-      error "unexpected error #{e.class} occured: #{e.message}"
+      error "unexpected error #{e.class} occurred: #{e.message}"
       debug e
     end
 
@@ -129,7 +131,9 @@ module QueueingRabbit
       QueueingRabbit.follow_job_requirements(job) do |_, _, queue|
         conn.listen_queue(queue, job.listening_options) do |payload, metadata|
           @mutex_pool.synchronize do
-            invoke_job(job, payload, metadata)
+            Rails.application.executor.wrap do
+              invoke_job(job, payload, metadata)
+            end
           end
         end
       end
