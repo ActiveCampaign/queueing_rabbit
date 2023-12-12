@@ -2,7 +2,7 @@
 # will give you the queueing_rabbit tasks
 
 namespace :queueing_rabbit do
-  task :setup
+  task :setup => :environment
 
   desc "Start a queueing rabbit worker"
   task :work => :setup do
