@@ -21,8 +21,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency "amqp", "~> 1.3.0"
   gem.add_dependency "amq-protocol", "~> 1.9.0"
   gem.add_dependency "bunny", "~> 1.6.3"
-  gem.add_dependency "rake", ">= 0"
-  gem.add_dependency "json", ">= 0"
+  gem.add_dependency "rake", "< 11.0"
+  gem.add_dependency "json"
 
   gem.description   = <<description
     QueueingRabbit is a Ruby library providing a flexible DSL to interact with a

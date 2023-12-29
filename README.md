@@ -89,3 +89,15 @@ Or install it globally as:
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Development
+
+    rvm install $(cat .ruby-version)
+    rvm gemset create $(cat .ruby-gemset)
+    rvm use
+
+### Testing
+
+The tests assume a RabbitMQ server is running on localhost:5672. To run the tests:
+
+    rake spec
