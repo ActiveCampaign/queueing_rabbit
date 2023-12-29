@@ -109,7 +109,7 @@ describe QueueingRabbit::Worker do
       context 'given pidfile is already in use' do
 
         it 'raises a worker error' do
-          File.stub(:exists?).with(file_name).and_return(true)
+          File.stub(:exist?).with(file_name).and_return(true)
           File.should_receive(:read).with(file_name).and_return('123')
           Process.should_receive(:getpgid).with(123).and_return(123)
           expect { subject.use_pidfile(file_name) }.
@@ -128,7 +128,7 @@ describe QueueingRabbit::Worker do
         context 'there is an abandoned pidfile' do
 
           it 'removes the abandoned pidfile and writes pid to a file' do
-            File.stub(:exists?).with(file_name).and_return(true)
+            File.stub(:exist?).with(file_name).and_return(true)
             File.should_receive(:read).with(file_name).and_return('123')
             Process.should_receive(:getpgid).with(123).and_raise(Errno::ESRCH)
             subject.use_pidfile(file_name)
@@ -139,7 +139,7 @@ describe QueueingRabbit::Worker do
         context 'new pidfile' do
 
           it 'creates a pidfile' do
-            File.stub(:exists?).with(file_name).and_return(false)
+            File.stub(:exist?).with(file_name).and_return(false)
             subject.use_pidfile(file_name)
           end
 
@@ -153,7 +153,7 @@ describe QueueingRabbit::Worker do
 
       before do
         subject.instance_variable_set(:@pidfile, file_name)
-        File.should_receive(:exists?).and_return(true)
+        File.should_receive(:exist?).and_return(true)
         File.should_receive(:delete).with(file_name)
       end
 
@@ -200,7 +200,7 @@ describe QueueingRabbit::Worker do
           connection.should_receive(:close).and_yield
           worker.mutex_pool.should_receive(:lock)
           QueueingRabbit.should_receive(:trigger_event).with(:consuming_done)
-          File.stub(:exists?).with(file_name).and_return(true)
+          File.stub(:exist?).with(file_name).and_return(true)
           File.should_receive(:delete).with(file_name)
           subject.stop(QueueingRabbit.connection, true)
         end
@@ -210,7 +210,7 @@ describe QueueingRabbit::Worker do
         it 'closes the connection and removes the pidfile' do
           connection.should_receive(:next_tick).and_yield
           connection.should_receive(:close).and_yield
-          File.stub(:exists?).with(file_name).and_return(true)
+          File.stub(:exist?).with(file_name).and_return(true)
           File.should_receive(:delete).with(file_name)
           subject.stop
         end

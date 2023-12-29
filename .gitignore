@@ -7,7 +7,6 @@
 .idea
 *.sublime-project
 *.sublime-workspace
-Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
