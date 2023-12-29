@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.rdoc_options      = ["--charset=UTF-8"]
 
   gem.add_dependency "bunny"
-  gem.add_dependency "rake", "< 11.0"
   gem.add_dependency "json"
 
   gem.description   = <<description

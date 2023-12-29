@@ -4,7 +4,6 @@ PATH
     queueing_rabbit (0.6.2)
       bunny
       json
-      rake (< 11.0)
 
 GEM
   remote: https://rubygems.org/
@@ -19,7 +18,6 @@ GEM
     evented-spec (0.9.0)
     eventmachine (1.2.7)
     json (2.7.1)
-    rake (10.5.0)
     rbtree (0.4.6)
     rspec (2.99.0)
       rspec-core (~> 2.99.0)

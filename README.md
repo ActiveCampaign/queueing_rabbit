@@ -92,4 +92,4 @@ Or install it globally as:
 
 The tests assume a RabbitMQ server is running on localhost:5672. To run the tests:
 
-    rake spec
+    rspec
