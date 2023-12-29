@@ -54,7 +54,7 @@ Check out the [project wiki](https://github.com/temochka/queueing_rabbit/wiki) f
 
 ## Installation
 
-QueueingRabbit supports MRI Ruby version 1.9.3 and above. It is still compilant with Ruby 1.8.7, but some features may not work as expected and the compatibility will be removed in the near future.
+QueueingRabbit supports MRI Ruby version 1.9.3 and above. It is still compliant with Ruby 1.8.7, but some features may not work as expected and the compatibility will be removed in the near future.
 
 Add this line to your application's `Gemfile`:
 
