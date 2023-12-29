@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files  = [ "LICENSE", "README.md" ]
   gem.rdoc_options      = ["--charset=UTF-8"]
 
-  gem.add_dependency "bunny", "~> 1.6.3"
+  gem.add_dependency "bunny"
   gem.add_dependency "rake", "< 11.0"
   gem.add_dependency "json"
 
