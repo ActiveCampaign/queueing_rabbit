@@ -1,6 +1,6 @@
 # QueueingRabbit [![Build Status](https://travis-ci.org/temochka/queueing_rabbit.png?branch=master)](https://travis-ci.org/temochka/queueing_rabbit) [![Code Climate](https://codeclimate.com/github/temochka/queueing_rabbit.png)](https://codeclimate.com/github/temochka/queueing_rabbit)
 
-QueueingRabbit provides a Ruby DSL to interact with RabbitMQ. It is fairly flexible and allows you to integrate with existing infrastructure and naming conventions. It currently offers gems [bunny](https://github.com/ruby-amqp/bunny) and [amqp](https://github.com/ruby-amqp/amqp) as supported back-ends.
+QueueingRabbit provides a Ruby DSL to interact with RabbitMQ. It is fairly flexible and allows you to integrate with existing infrastructure and naming conventions. It currently supports [bunny](https://github.com/ruby-amqp/bunny) as a back-end.
 
 ## Disclaimer
 
@@ -47,14 +47,6 @@ This code has following important side effects:
 * 6 messages are published to the default exchange with routing key `Reciter`.
 * 6 messages are consumed from the `Reciter` queue.
 * 6 lines of the poem are printed to STDOUT.
-
-## Choosing the back-end: bunny or amqp?
-
-`Bunny` is a pseudo-synchronous RabbitMQ client. `Amqp` is EventMachine-based and heavily asynchronous (lots of callbacks involved). Both clients are in active development, thoroughly documented and fairly stable.
-
-Choose `bunny` if you don’t want to worry about blocking I/O and EventMachine-compilant drivers. Choose `amqp` if you’re familiar with EventMachine, designing a lightweight app from scratch and performance is a serious concern. Obviously there are exceptions, and no one knows your requirements better than you.
-
-Also, you can use both of them. For example, you may decide to publish via `bunny` from your Rails app and use `amqp` in your background worker.
 
 ## Documentation & Support
 
