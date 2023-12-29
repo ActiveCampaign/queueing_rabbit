@@ -8,4 +8,5 @@ group :test do
   gem 'rspec-its', '~> 1.0.1'
   gem 'evented-spec', '~> 0.9.0'
   gem 'celluloid', '~> 0.15.0'
+  gem 'eventmachine'
 end
