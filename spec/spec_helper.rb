@@ -8,6 +8,7 @@ Bundler.setup(:test)
 require 'rspec'
 require 'rspec/its'
 require 'rspec/autorun'
+require 'eventmachine'
 require 'evented-spec'
 require 'support/shared_contexts'
 
