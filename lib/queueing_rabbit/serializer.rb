@@ -7,7 +7,7 @@ module QueueingRabbit
     end
 
     def deserialize(msg)
-      symbolize_keys(JSON.parse(msg))
+      symbolize_keys(JSON.parse(msg) || {})
     end
 
   private
